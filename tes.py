@@ -1,6 +1,3 @@
 print("tes")
 
-
-print("ikiw 123")
-
-print("branch ikiw switch 123")
+print("branch ikiw switch 123 ")
