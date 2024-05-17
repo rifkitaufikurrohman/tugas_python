@@ -8,6 +8,17 @@ tipeKereta = ["Ekonomi", "Ekonomi Premium", "Eksekutif"]
 hargaKeretaJakba = [50000, 100000, 150000]
 hargaKeretaPurjo = [100000, 150000, 180000]
 hargaKeretaPurbe = [150000, 200000, 250000]
+jadwalBandungJaya = [10.00, 12.00, 14.00]
+jadwalBandungPremium = [11.00, 13.00, 15.00]
+jadwalBandungLuxury = [12.00, 14.00, 16.00]
+jadwalPurjoJaya = [07.00, 10.00, 14.00]
+jadwalPurjoPremium = [08.00, 12.00, 16.00]
+jadwalPurjoLuxury = [19.00, 12.00, 08.00]
+jadwalPurbeJaya = [08.00, 12.00, 14.00]
+jadwalPurbePremium = [10.00, 12.00, 14.00]
+jadwalPurbeLuxury = [22.00, 12.00, 15.00]
+
+
 
 
 def getRuteKereta() :
