@@ -173,7 +173,7 @@ def home():
     print("4. DANA")
     print("5. PAYPAL")
     print(f"\nTotal Rp. {total}\n")
-    pilihMetode = int(input("Pilih Metode Pembayaran Yang Tersedia (Tekan 1-4): "))
+    pilihMetode = int(input("Pilih Metode Pembayaran Yang Tersedia (Tekan 1-5): "))
     metode_pembayaran = ""
 
     
@@ -261,7 +261,7 @@ def home():
     print(35*"=")
     print("    Invoice Tiket Kereta Api")
     print(35*"=")
-    print("\n PEMBAYARAN BERHASIL")
+    print(" PEMBAYARAN BERHASIL")
     print(f"\n Nama Pemesan: {Nama} ")
     print(f" Usia: {Usia} Tahun ")
     print(f" Rute: {rute} ")
@@ -273,4 +273,10 @@ def home():
     print(f" Total: Rp. {total} ")
     print(35*"=")
 
-home()
+# LOOPING IF YES    
+while True:
+  home()
+  pemesananLagi = input(" Apakah Anda Ingin Memesan Lagi? (Y/T): ") .strip() .lower()
+  if pemesananLagi != 'y':
+      print("\n Terima Kasih Telah Menggunakan Layanan Kami")
+      break
