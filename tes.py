@@ -260,7 +260,7 @@ def home():
                 pinGopay = int(input("\nMasukan PIN GoPay Anda: "))
                 break
             except ValueError:
-                print("PIN GOPAY Harus Berupa Angka!. Silahkan Coba Lagi")
+                print("PIN GoPay Harus Berupa Angka! Silahkan Coba Lagi!")
         metode_pembayaran = gopay
         print(f"Pembayaran Berhasil Menggunakan {gopay}")
 
@@ -273,13 +273,13 @@ def home():
                 noOvo = int(input("\nMasukan No.HP Akun OVO Anda: "))
                 break
             except ValueError:
-                print("No HP Akun OVO Harus Angka Contoh: +6281234567789. Silahkan Coba Lagi!")
+                print("No HP Harus Berupa Angka Contoh '+6281234567789' Silahkan Coba Lagi!")
         while True:
             try:
                 pinOvo = int(input("Masukan PIN OVO Anda: "))
                 break
             except ValueError:
-                print("PIN OVO Harus Angka!. Silahkan Coba Lagi")
+                print("PIN OVO Harus Berupa Angka! Silahkan Coba Lagi")
         metode_pembayaran = ovo
         print(f"Pembayaran Berhasil Menggunakan {ovo}")
 
@@ -292,13 +292,13 @@ def home():
                 noDana = int(input("\nMasukan No.HP Akun Dana Anda: "))
                 break
             except ValueError:
-                print("No HP Akun Dana Harus Angka Contoh: +6281281647878. Silahkan Coba Lagi")
+                print("No HP Harus Angka Contoh '+6281281647878' Silahkan Coba Lagi")
         while True:
             try:
                 pinDana = int(input("Masukan PIN Dana Anda: "))
                 break
             except ValueError:
-                print("PIN Dana Harus Berupa Angka!. Silahkan Coba Lagi")
+                print("PIN Dana Harus Berupa Angka! Silahkan Coba Lagi")
         metode_pembayaran = dana
         print(f"Pembayaran Berhasil Menggunakan {dana}")
 
@@ -312,7 +312,7 @@ def home():
                 pinPaypal = int(input("Masukan PIN PayPal Anda:  "))
                 break
             except ValueError:
-                print("PIN PayPal Harus Berupa Angka!. Silahkan Coba Lagi")
+                print("PIN PayPal Harus Berupa Angka! Silahkan Coba Lagi")
         metode_pembayaran = paypal
         print(f"Pembayaran Berhasil Menggunakan {akunPaypal} {paypal}")
 
