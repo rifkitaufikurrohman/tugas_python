@@ -36,6 +36,14 @@ def selection_sort(arr):
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
     return arr
 
+def inputInteger(userInput):
+    while True:
+        user_input = input(userInput)
+        if user_input.isdigit():
+            return int(user_input)
+        else:
+            print("Inputan kamu tidak valid. Silakan masukkan angka integer.")
+
 def getRuteKereta():
     result = []
 
