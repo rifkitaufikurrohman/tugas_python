@@ -76,6 +76,9 @@ def home():
     print("Rute yang tersedia")
     getRuteKereta()
     rute = ""
+    namaKereta = []
+    hargaKereta = []
+    jadwal = []
 
     # PILIH RUTE
     pilihRute = int(input("\nPilih Rute sesuai dengan nomor di atas 1-3: "))
@@ -122,6 +125,7 @@ def home():
     # JAM KEBERANGKATAN
     pilihJamBerangkat = int(input("\nPilih Jam keberangkatan sesuai dengan nomor di atas: ")) - 1
     jam = ""
+
 
     if pilihJamBerangkat in range(3):
         jam = jadwal[pilihTipeKereta][pilihJamBerangkat]
@@ -173,7 +177,16 @@ def home():
     print("4. DANA")
     print("5. PAYPAL")
     print(f"\nTotal Rp. {total}\n")
-    pilihMetode = int(input("Pilih Metode Pembayaran Yang Tersedia (Tekan 1-5): "))
+
+    # LOOPING & ERROR MESSAGE PEMILIHAN METODE BAYAR
+    while True:
+        try:
+            pilihMetode = int(input("Pilih Metode Pembayaran Yang Tersedia (Tekan 1-5): "))
+            if pilihMetode not in range(1,6):
+                raise ValueError("Pilih 1-5, Silahkan Coba Lagi!")
+            break
+        except ValueError:
+            print(f"Pilih 1-5, Silahkan Coba Lagi!")
     metode_pembayaran = ""
 
     
@@ -190,30 +203,48 @@ def home():
         bsi = 'BSI Mobile'
         bri = 'BRI Mobile'
         mandiri = 'Mandiri Mobile'
-        pilihATM = int(input("Pilih ATM Yang Tersedia (Tekan 1-5): ")) 
+
+        # LOOPING & ERROR MESSAGE PEMILIHAN BANK
+        while True:
+            try:
+                pilihATM = int(input("Pilih ATM Yang Tersedia (Tekan 1-5): "))
+                if pilihATM not in range(1,6):
+                    raise ValueError("Pilih 1-5")
+                break
+            except:
+                print("Masukkan ATM Yang Tersedia")
+
+        # LOOPING & ERROR MESSAGE INPUT PIN ATM
+        def pin_ATM(bank):
+            while True:
+                try:
+                    pin = int(input(f"Masukkan PIN {bank} Anda: "))
+                    return
+                except ValueError:
+                    print("PIN Harus Berupa Angka Silahkan Coba Lagi")
 
         if pilihATM == 1 :
-            pinATM_1 = int(input(f"Masukan PIN {bni} Anda: "))
+            pinATM_1 = pin_ATM(bni)
             metode_pembayaran = bni
             print(f"Pembayaran Berhasil Menggunakan {bni}")
 
         elif pilihATM == 2 :
-            pinATM_2 = int(input(f"Masukan PIN {bca} Anda: "))
+            pinATM_2 = pin_ATM(bca)
             metode_pembayaran = bca
             print(f"Pembayaran Berhasil Menggunakan {bca}")
 
         elif pilihATM == 3 :
-            pinATM_3 = int(input(f"Masukan PIN {bsi} Anda: "))
+            pinATM_3 = pin_ATM(bsi)
             metode_pembayaran = bsi
             print(f"Pembayaran Berhasil Menggunakan {bsi}")
 
         elif pilihATM == 4 :
-            pinATM_4 = int(input(f"Masukan PIN {bri} Anda: "))
+            pinATM_4 = pin_ATM(bri)
             metode_pembayaran = bri
             print(f"Pembayaran Berhasil Menggunakan {bri}")
 
         elif pilihATM == 5 :
-            pinATM_5 = int(input(f"Masukan PIN {mandiri} Anda: "))
+            pinATM_5 = pin_ATM(mandiri)
             metode_pembayaran = mandiri
             print(f"Pembayaran Berhasil Menggunakan {mandiri}")
         else:
@@ -223,23 +254,51 @@ def home():
     # GOPAY
     elif pilihMetode == 2:
         gopay = 'GoPay'
-        pinGopay = int(input("\nMasukan PIN GoPay Anda: "))
+        # LOOPING & ERROR MESSAGE INPUT PIN GOPAY
+        while True:
+            try:
+                pinGopay = int(input("\nMasukan PIN GoPay Anda: "))
+                break
+            except ValueError:
+                print("PIN GOPAY Harus Berupa Angka!. Silahkan Coba Lagi")
         metode_pembayaran = gopay
         print(f"Pembayaran Berhasil Menggunakan {gopay}")
 
     # OVO
     elif pilihMetode == 3:
         ovo = 'OVO'
-        noOvo = int(input("\nMasukan No.HP Akun OVO Anda: "))
-        pinOvo = int(input("Masukan PIN OVO Anda: "))
+         # LOOPING & ERROR MESSAGE INPUT PIN & NO. OVO
+        while True:
+            try:
+                noOvo = int(input("\nMasukan No.HP Akun OVO Anda: "))
+                break
+            except ValueError:
+                print("No HP Akun OVO Harus Angka Contoh: +6281234567789. Silahkan Coba Lagi!")
+        while True:
+            try:
+                pinOvo = int(input("Masukan PIN OVO Anda: "))
+                break
+            except ValueError:
+                print("PIN OVO Harus Angka!. Silahkan Coba Lagi")
         metode_pembayaran = ovo
         print(f"Pembayaran Berhasil Menggunakan {ovo}")
 
     # DANA
     elif pilihMetode == 4:
         dana = 'Dana'
-        noDana = int(input("\nMasukan No.HP Akun Dana Anda: "))
-        pinDana = int(input("Masukan PIN Dana Anda: "))
+        # LOOPING & ERROR MESSAGE INPUT PIN & NO. DANA
+        while True:
+            try:
+                noDana = int(input("\nMasukan No.HP Akun Dana Anda: "))
+                break
+            except ValueError:
+                print("No HP Akun Dana Harus Angka Contoh: +6281281647878. Silahkan Coba Lagi")
+        while True:
+            try:
+                pinDana = int(input("Masukan PIN Dana Anda: "))
+                break
+            except ValueError:
+                print("PIN Dana Harus Berupa Angka!. Silahkan Coba Lagi")
         metode_pembayaran = dana
         print(f"Pembayaran Berhasil Menggunakan {dana}")
 
@@ -247,7 +306,13 @@ def home():
     elif pilihMetode == 5:
         paypal = 'PayPal'
         akunPaypal = input("Masukan Username PayPal Anda: ")
-        pinPaypal = int(input("Masukan PIN PayPal Anda:  "))
+        # LOOPING & ERROR MESSAGE INPUT PIN PAYPAL
+        while True:
+            try:
+                pinPaypal = int(input("Masukan PIN PayPal Anda:  "))
+                break
+            except ValueError:
+                print("PIN PayPal Harus Berupa Angka!. Silahkan Coba Lagi")
         metode_pembayaran = paypal
         print(f"Pembayaran Berhasil Menggunakan {akunPaypal} {paypal}")
 
