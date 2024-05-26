@@ -98,6 +98,7 @@ def home():
             namaKereta = namaKeretaPurJo
             hargaKereta = hargaKeretaPurjo
             jadwal = [jadwalPurjoJaya, jadwalPurjoPremium, jadwalPurjoLuxury]
+            break
 
         elif pilihRute == 3:
             print("\t\t===== Rute Purwokerto-Bekasi =====")
@@ -107,6 +108,7 @@ def home():
             namaKereta = namaKeretaPurBe
             hargaKereta = hargaKeretaPurbe
             jadwal = [jadwalPurbeJaya, jadwalPurbePremium, jadwalPurbeLuxury]
+            break
         else:
             print("Pilih Nomor 1-3!")
        
