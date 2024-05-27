@@ -267,7 +267,7 @@ def home():
     # OVO
     elif pilihMetode == 3:
         ovo = 'OVO'
-         # LOOPING & ERROR MESSAGE INPUT PIN & NO. OVO
+        # LOOPING & ERROR MESSAGE INPUT PIN & NO. OVO
         while True:
             try:
                 noOvo = int(input("\nMasukan No.HP Akun OVO Anda: "))
