@@ -374,8 +374,13 @@ def home():
 
 # LOOPING IF YES    
 while True:
-  home()
-  pemesananLagi = input(" Apakah Anda Ingin Memesan Lagi? (Y/T): ") .strip() .lower()
-  if pemesananLagi != 'y':
-      print("\n Terima Kasih Telah Menggunakan Layanan Kami")
-      break
+    home()
+    while True :
+        pemesananLagi = input(" Apakah Anda Ingin Memesan Lagi? (Y/T): ") .strip() .lower()
+        if pemesananLagi == 't':
+            print("\n Terima Kasih Telah Menggunakan Layanan Kami")
+            break
+        elif pemesananLagi == 'y':
+            break  
+        else:
+            print(" Input tidak valid. Anda harus memasukkan 'y' untuk ya atau 't' untuk tidak. Silakan coba lagi.")
