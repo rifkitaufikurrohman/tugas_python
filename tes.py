@@ -309,10 +309,13 @@ def home():
         # LOOPING & ERROR MESSAGE INPUT PIN & NO. OVO
         while True:
             try:
-                noOvo = int(input("\nMasukan No.HP Akun OVO Anda: "))
+                noOvo = input("\nMasukan 10 - 13 Digit No.HP Akun OVO Anda: ")
+                if len(noOvo) < 10 or len(noOvo) > 13 or not noOvo.isdigit():
+                    raise ValueError
+                noOvo = int(noOvo)
                 break
             except ValueError:
-                print("No HP Harus Berupa Angka Contoh '+6281234567789' Silahkan Coba Lagi!")
+                print("No HP Harus Berupa Angka Dan Berisi 10-13 Digit! Silahkan Coba Lagi!")
         while True:
             try:
                 pinOvo = input("Masukan 6 Digit PIN OVO Anda: ")
@@ -331,10 +334,13 @@ def home():
         # LOOPING & ERROR MESSAGE INPUT PIN & NO. DANA
         while True:
             try:
-                noDana = int(input("\nMasukan No.HP Akun Dana Anda: "))
+                noDana = input("\nMasukan 10-13 Digit No.HP Akun Dana Anda: ")
+                if len(noDana) < 10 or len(noDana) > 13 or not noDana.isdigit():
+                    raise ValueError
+                noDana = int(noDana)
                 break
             except ValueError:
-                print("No HP Harus Angka Contoh '+6281281647878' Silahkan Coba Lagi")
+                print("No HP Harus Angka Dan Berupa 10-13 Digit! Silahkan Coba Lagi")
         while True:
             try:
                 pinDana = input("Masukan 6 Digit PIN Dana Anda: ")
