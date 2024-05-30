@@ -76,62 +76,79 @@ def home():
     print("Rute yang tersedia")
     getRuteKereta()
     rute = ""
+
     namaKereta = []
     hargaKereta = []
     jadwal = []
 
+
     # PILIH RUTE
-    pilihRute = int(input("\nPilih Rute sesuai dengan nomor di atas 1-3: "))
-    if pilihRute == 1:
-        print("\t\t===== Rute Jakarta-Bandung =====")
-        print(getListKereta(namaKeretaJakba, hargaKeretaJakba))
-        JktBdg = 'Jakarta - Bandung'
-        rute = JktBdg
-        namaKereta = namaKeretaJakba
-        hargaKereta = hargaKeretaJakba
-        jadwal = [jadwalBandungJaya, jadwalBandungPremium, jadwalBandungLuxury]
+    while True:
+        try: 
+            pilihRute = int(input("\nPilih Rute sesuai dengan nomor di atas 1-3: "))
+            if pilihRute == 1:
+                print("\t\t===== Rute Jakarta-Bandung =====")
+                print(getListKereta(namaKeretaJakba, hargaKeretaJakba))
+                JktBdg = 'Jakarta - Bandung'
+                rute = JktBdg
+                namaKereta = namaKeretaJakba
+                hargaKereta = hargaKeretaJakba
+                jadwal = [jadwalBandungJaya, jadwalBandungPremium, jadwalBandungLuxury]
+                break
 
-    elif pilihRute == 2:
-        print("\t\t===== Rute Purwokerto-Jogja =====")
-        print(getListKereta(namaKeretaPurJo, hargaKeretaPurjo))
-        PwktJgj = 'Purwokerto - Jogja'
-        rute = PwktJgj
-        namaKereta = namaKeretaPurJo
-        hargaKereta = hargaKeretaPurjo
-        jadwal = [jadwalPurjoJaya, jadwalPurjoPremium, jadwalPurjoLuxury]
+            elif pilihRute == 2:
+                print("\t\t===== Rute Purwokerto-Jogja =====")
+                print(getListKereta(namaKeretaPurJo, hargaKeretaPurjo))
+                PwktJgj = 'Purwokerto - Jogja'
+                rute = PwktJgj
+                namaKereta = namaKeretaPurJo
+                hargaKereta = hargaKeretaPurjo
+                jadwal = [jadwalPurjoJaya, jadwalPurjoPremium, jadwalPurjoLuxury]
+                break
 
-    elif pilihRute == 3:
-        print("\t\t===== Rute Purwokerto-Bekasi =====")
-        print(getListKereta(namaKeretaPurBe, hargaKeretaPurbe))
-        PwktBks = 'Purwokerto - Bekasi'
-        rute = PwktBks
-        namaKereta = namaKeretaPurBe
-        hargaKereta = hargaKeretaPurbe
-        jadwal = [jadwalPurbeJaya, jadwalPurbePremium, jadwalPurbeLuxury]
-    else:
-        print("Pilih Nomor 1-3!")
-        return
+            elif pilihRute == 3:
+                print("\t\t===== Rute Purwokerto-Bekasi =====")
+                print(getListKereta(namaKeretaPurBe, hargaKeretaPurbe))
+                PwktBks = 'Purwokerto - Bekasi'
+                rute = PwktBks
+                namaKereta = namaKeretaPurBe
+                hargaKereta = hargaKeretaPurbe
+                jadwal = [jadwalPurbeJaya, jadwalPurbePremium, jadwalPurbeLuxury]
+                break
+            else:
+                print("Pilih Nomor 1-3!")
+        except ValueError : 
+            print(f"Inputan kamu tidak valid. Silakan masukkan angka integer antara 1-3.")
+    
 
     # TIPE KERETA
-    pilihTipeKereta = int(input("\nPilih Tipe kereta sesuai dengan nomor di atas 1-3: "))-1
-
-    if pilihTipeKereta in range(3):
-        print(f"\t\t===== Tipe {tipeKereta[pilihTipeKereta]} =====")
-        print(getJadwalBerangkat(namaKereta, hargaKereta, jadwal[pilihTipeKereta], pilihTipeKereta))
-    else:
-        print("Pilih Nomor 1-3!")
-        return
+    while True :
+        try : 
+            pilihTipeKereta = int(input("\nPilih Tipe kereta sesuai dengan nomor di atas 1-3: "))-1
+            if pilihTipeKereta in range(3):
+                print(f"\t\t===== Tipe {tipeKereta[pilihTipeKereta]} =====")
+                print(getJadwalBerangkat(namaKereta, hargaKereta, jadwal[pilihTipeKereta], pilihTipeKereta))
+                break
+            else:
+                print("Pilih Nomor 1-3!")
+        except ValueError :
+            print(f"Inputan kamu tidak valid. Silakan masukkan angka integer antara 1-3.")
+    
     
     # JAM KEBERANGKATAN
-    pilihJamBerangkat = int(input("\nPilih Jam keberangkatan sesuai dengan nomor di atas: ")) - 1
-    jam = ""
-
-
-    if pilihJamBerangkat in range(3):
-        jam = jadwal[pilihTipeKereta][pilihJamBerangkat]
-        print(f"\nAnda telah memilih jam keberangkatan: {jam}")
-    else:
-        print("Pilih No 1-3 !")
+    while True:
+        try : 
+            pilihJamBerangkat = int(input("\nPilih Jam keberangkatan sesuai dengan nomor di atas (1-3): ")) - 1
+            if pilihJamBerangkat in range(3):
+                jam = jadwal[pilihTipeKereta][pilihJamBerangkat]
+                print(f"\nAnda telah memilih jam keberangkatan: {jam}")
+                break
+            else:
+                print("Pilih nomor antara 1 dan 3!")
+        except ValueError :
+            print(f"Inputan kamu tidak valid. Silakan masukkan angka integer antara 1-3.")
+        
+    
 
 
     # PILIH KURSI
@@ -147,26 +164,42 @@ def home():
         else:
             print("Anda harus memasukkan 'y' untuk ya atau 't' untuk tidak. Silakan coba lagi.")
 
+
     while True :
-        pilihKursiKereta = int(input("\nPilih Nomor Kursi Kereta sesuai dengan nomor di atas: "))
-        if kursis == 'y':
-            if pilihKursiKereta in kursi_tersedia:
-                print(f"Anda telah memilih kursi nomor {pilihKursiKereta}.")
-                break
+        try : 
+            pilihKursiKereta = int(input("\nPilih Nomor Kursi Kereta sesuai dengan nomor di atas: "))
+            if kursis == 'y':
+                if pilihKursiKereta in kursi_tersedia:
+                    print(f"Anda telah memilih kursi nomor {pilihKursiKereta}.")
+                    break
+                else:
+                    print("Nomor kursi tidak valid atau sudah dipesan! Silahkan pilih nomor lain.")
+            elif kursis == 't':
+                if pilihKursiKereta in kursi[0]:
+                    print(f"Anda telah memilih kursi nomor {pilihKursiKereta}.")
+                    break
             else:
                 print("Nomor kursi tidak valid atau sudah dipesan! Silahkan pilih nomor lain.")
-        elif kursis == 't':
-            if pilihKursiKereta in kursi[0]:
-                print(f"Anda telah memilih kursi nomor {pilihKursiKereta}.")
-                break
-        else:
-            print("Nomor kursi tidak valid atau sudah dipesan! Silahkan pilih nomor lain.")
+        except ValueError : 
+            print(f"Inputan kamu tidak valid. Silakan masukkan Nomer kursi yang tersedia")
 
     # DATA DIRI
     print("\n===== ISI DATA DIRI ANDA =====\n")
     Nama = input("Nama Lengkap: ")
-    Nomor_KTP = int(input("Nomor KTP: "))
-    Usia = int(input("Usia: "))
+    while True : 
+        try :
+            Nomor_KTP = int(input("Nomor KTP: "))
+            break
+        except ValueError :
+            print(f"Inputan kamu tidak valid. Silakan masukkan angka integer untuk No.KTP")
+
+    while True : 
+        try :
+            Usia = int(input("Usia: "))
+            break
+        except ValueError :
+            print(f"Inputan kamu tidak valid. Silakan masukkan angka integer untuk Usia")
+
 
     # PEMBAYARAN
     total = hargaKereta[pilihTipeKereta]
@@ -267,7 +300,7 @@ def home():
     # OVO
     elif pilihMetode == 3:
         ovo = 'OVO'
-         # LOOPING & ERROR MESSAGE INPUT PIN & NO. OVO
+        # LOOPING & ERROR MESSAGE INPUT PIN & NO. OVO
         while True:
             try:
                 noOvo = int(input("\nMasukan No.HP Akun OVO Anda: "))
@@ -328,9 +361,10 @@ def home():
     print(35*"=")
     print(" PEMBAYARAN BERHASIL")
     print(f"\n Nama Pemesan: {Nama} ")
+    print(f" Nomor KTP: {Nomor_KTP}")
     print(f" Usia: {Usia} Tahun ")
     print(f" Rute: {rute} ")
-    print(f" Waktu Keberangkatan: {jam} ")
+    print(f"\n Waktu Keberangkatan: {jam} ")
     print(f" Nama Kereta: {namaKereta[pilihTipeKereta]} ")
     print(f" Tipe Kereta: {tipeKereta[pilihTipeKereta]} ")
     print(f" Tempat Duduk: {pilihKursiKereta} ")
@@ -339,9 +373,16 @@ def home():
     print(35*"=")
 
 # LOOPING IF YES    
-while True:
-  home()
-  pemesananLagi = input(" Apakah Anda Ingin Memesan Lagi? (Y/T): ") .strip() .lower()
-  if pemesananLagi != 'y':
-      print("\n Terima Kasih Telah Menggunakan Layanan Kami")
-      break
+pesan_lagi = True
+while pesan_lagi:
+    home()
+    while True:
+        pemesananLagi = input("Apakah Anda Ingin Melakukan Pemesanan Lagi? (y/t): ")
+        if pemesananLagi == 'y':
+            break
+        elif pemesananLagi == 't':
+            print("Terima Kasih Telah Menggunakan Layanan Se-Pure!")
+            pesan_lagi = False
+            break
+        else :
+            print("Error Mohon Input (y/t)!")
