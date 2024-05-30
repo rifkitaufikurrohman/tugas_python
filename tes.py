@@ -251,10 +251,13 @@ def home():
         def pin_ATM(bank):
             while True:
                 try:
-                    pin = int(input(f"Masukkan PIN {bank} Anda: "))
+                    pin = input(f"Masukan 6 Digit PIN {bank} Anda: ")
+                    if len(pin) != 6 or not pin.isdigit():
+                        raise ValueError
+                    pin = int(pin)
                     return
                 except ValueError:
-                    print("PIN Harus Berupa Angka Silahkan Coba Lagi")
+                    print("PIN Harus Berupa Angka Dan 6 Digit! Silahkan Coba Lagi")
 
         if pilihATM == 1 :
             pinATM_1 = pin_ATM(bni)
@@ -290,10 +293,13 @@ def home():
         # LOOPING & ERROR MESSAGE INPUT PIN GOPAY
         while True:
             try:
-                pinGopay = int(input("\nMasukan PIN GoPay Anda: "))
+                pinGopay = input("\nMasukan 6 Digit PIN GoPay Anda: ")
+                if len(pinGopay) != 6 or not pinGopay.isdigit():
+                    raise ValueError
+                pinGopay = int(pinGopay)
                 break
             except ValueError:
-                print("PIN GoPay Harus Berupa Angka! Silahkan Coba Lagi!")
+                print("PIN GoPay Harus Berupa Angka Dan Berisi 6 Digit! Silahkan Coba Lagi!")
         metode_pembayaran = gopay
         print(f"Pembayaran Berhasil Menggunakan {gopay}")
 
@@ -309,10 +315,13 @@ def home():
                 print("No HP Harus Berupa Angka Contoh '+6281234567789' Silahkan Coba Lagi!")
         while True:
             try:
-                pinOvo = int(input("Masukan PIN OVO Anda: "))
+                pinOvo = input("Masukan 6 Digit PIN OVO Anda: ")
+                if len(pinOvo) != 6 or not pinOvo.isdigit():
+                    raise ValueError
+                pinOvo = int(pinOvo)
                 break
             except ValueError:
-                print("PIN OVO Harus Berupa Angka! Silahkan Coba Lagi")
+                print("PIN OVO Harus Berupa Angka Dan Berisi 6 Digit! Silahkan Coba Lagi")
         metode_pembayaran = ovo
         print(f"Pembayaran Berhasil Menggunakan {ovo}")
 
@@ -328,10 +337,13 @@ def home():
                 print("No HP Harus Angka Contoh '+6281281647878' Silahkan Coba Lagi")
         while True:
             try:
-                pinDana = int(input("Masukan PIN Dana Anda: "))
+                pinDana = input("Masukan 6 Digit PIN Dana Anda: ")
+                if len(pinDana) != 6 or not pinDana.isdigit():
+                    raise ValueError
+                pinDana = int(pinDana)
                 break
             except ValueError:
-                print("PIN Dana Harus Berupa Angka! Silahkan Coba Lagi")
+                print("PIN Dana Harus Berupa Angka Dan Berisi 6 Digit! Silahkan Coba Lagi")
         metode_pembayaran = dana
         print(f"Pembayaran Berhasil Menggunakan {dana}")
 
@@ -342,10 +354,13 @@ def home():
         # LOOPING & ERROR MESSAGE INPUT PIN PAYPAL
         while True:
             try:
-                pinPaypal = int(input("Masukan PIN PayPal Anda:  "))
+                pinPaypal = input("Masukan 6 Digit PIN PayPal Anda:  ")
+                if len(pinPaypal) != 6 or not pinPaypal.isdigit():
+                    raise ValueError
+                pinPaypal = int(pinPaypal)
                 break
             except ValueError:
-                print("PIN PayPal Harus Berupa Angka! Silahkan Coba Lagi")
+                print("PIN PayPal Harus Berupa Angka Dan Berisi 6 Digit! Silahkan Coba Lagi")
         metode_pembayaran = paypal
         print(f"Pembayaran Berhasil Menggunakan {akunPaypal} {paypal}")
 
