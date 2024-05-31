@@ -185,7 +185,13 @@ def home():
 
     # DATA DIRI
     print("\n===== ISI DATA DIRI ANDA =====\n")
-    Nama = input("Nama Lengkap: ")
+    while True:
+        Nama = input("Nama Lengkap: ")
+        if Nama.strip():
+            break
+        else:
+            print("Isi Nama Dengan Benar!")
+
     while True : 
         try :
             Nomor_KTP = int(input("Nomor KTP: "))
