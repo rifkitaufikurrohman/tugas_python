@@ -71,7 +71,7 @@ def getJadwalBerangkat(namaKereta, hargaKereta, jadwal, pilihTipeKereta):
 
 # HOME RUTE-TIPE-KURSI-PEMBAYARAN-INVOICE-KERETA
 def home():
-    print("\t===== Selamat Datang =====")
+    print("=========== Selamat Datang Di Se-Pure ===========")
     print("===== Silahkan Pesan Tiket Kereta Api Anda =====\n")
     print("Rute yang tersedia")
     getRuteKereta()
